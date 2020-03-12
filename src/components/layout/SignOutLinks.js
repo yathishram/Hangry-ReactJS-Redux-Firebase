@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const SignOutLinks = () => {
+const SignedOutLinks = () => {
   return (
     <ul className="right hide-on-med-and-down">
       <li>
@@ -17,4 +17,4 @@ const SignOutLinks = () => {
   );
 };
 
-export default SignOutLinks;
+export default SignedOutLinks;

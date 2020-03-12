@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { signup } from "../../actions/authActions";
 import SignupImage from "../../media/signup.svg";
 
 class SignUp extends Component {
@@ -11,7 +14,7 @@ class SignUp extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.signup(this.state);
   };
 
   handleChange = e => {
@@ -21,6 +24,8 @@ class SignUp extends Component {
   };
 
   render() {
+    const { auth, authError } = this.props;
+    if (auth.uid) return <Redirect to="/"></Redirect>;
     return (
       <div className="container">
         <div className="row">
@@ -46,6 +51,7 @@ class SignUp extends Component {
               </div>
               <div className="input-field">
                 <button className="btn pink lighten-1 z-depth-0">Login</button>
+                <div className="center red-text">{authError ? <p>{authError}</p> : null}</div>
               </div>
             </form>
           </div>
@@ -58,17 +64,17 @@ class SignUp extends Component {
   }
 }
 
-// const mapStateToProps = state => {
-//   return {
-//     auth: state.firebase.auth,
-//     authError: state.auth.authError
-//   };
-// };
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth,
+    authError: state.auth.authError
+  };
+};
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     signup: user => dispatch(signup(user))
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    signup: user => dispatch(signup(user))
+  };
+};
 
-export default SignUp;
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);
