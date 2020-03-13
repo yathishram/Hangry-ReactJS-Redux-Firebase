@@ -3,10 +3,17 @@ import { Link } from "react-router-dom";
 
 import RecipeSummary from "./recipeSummary";
 
-const RecipeList = () => {
+const RecipeList = ({ recipes }) => {
   return (
     <div className="project-list">
-      <RecipeSummary />
+      {recipes &&
+        recipes.map(recipe => {
+          return (
+            <Link to={"/recipe/" + recipe.id} key={recipe.id}>
+              <RecipeSummary recipeData={recipe} />
+            </Link>
+          );
+        })}
     </div>
   );
 };

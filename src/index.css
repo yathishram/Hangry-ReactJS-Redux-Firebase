@@ -24,3 +24,7 @@ div .section {
   padding: 20px;
   margin-top: 100px;
 }
+
+p {
+  text-align: justify;
+}

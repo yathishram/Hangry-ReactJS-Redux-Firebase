@@ -7,8 +7,9 @@ import Dashboard from "./components/dashboard/Dashboard";
 import About from "./components/dashboard/about";
 import SignIn from "./components/auth/SignIn";
 import SignUp from "./components/auth/SignUp";
-import Search from "./components/search/searchComponent";
+import SearchRecipe from "./components/search/searchComponent";
 import CreateRecipe from "./components/recipe/createRecipe";
+import RecipeDetails from "./components/recipe/recipeDetails";
 
 class App extends Component {
   render() {
@@ -22,8 +23,9 @@ class App extends Component {
             <Route path="/about" component={About} />
             <Route path="/signin" component={SignIn} />
             <Route path="/signup" component={SignUp} />
-            <Route path="/search" component={Search} />
-            <Route path="/recipe" component={CreateRecipe} />
+            <Route path="/search" component={SearchRecipe} />
+            <Route exact path="/recipe" component={CreateRecipe} />
+            <Route path="/recipe/:id" component={RecipeDetails} />
           </Switch>
         </div>
       </BrowserRouter>

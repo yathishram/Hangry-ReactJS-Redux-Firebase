@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { createRecipe } from "../../actions/recipeActions";
+import { Redirect } from "react-router-dom";
 
 export class CreateRecipe extends Component {
   state = {
@@ -10,8 +13,8 @@ export class CreateRecipe extends Component {
   handleSubmit = e => {
     e.preventDefault();
     console.log(this.state);
-    // this.props.createProject(this.state);
-    // this.props.history.push("/");
+    this.props.createRecipe(this.state);
+    this.props.history.push("/dashboard");
   };
 
   handleChange = e => {
@@ -20,6 +23,8 @@ export class CreateRecipe extends Component {
     });
   };
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin"></Redirect>;
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
@@ -49,4 +54,16 @@ export class CreateRecipe extends Component {
   }
 }
 
-export default CreateRecipe;
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    createRecipe: recipe => dispatch(createRecipe(recipe))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CreateRecipe);

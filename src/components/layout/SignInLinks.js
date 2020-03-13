@@ -13,7 +13,7 @@ const SignedInLinks = props => {
         <NavLink to="/recipe">New Recipe</NavLink>
       </li>
       <li>
-        <a href="#" onClick={props.signout}>
+        <a href="/" onClick={props.signout}>
           Log Out
         </a>
       </li>
