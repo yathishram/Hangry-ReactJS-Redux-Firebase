@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
+import ChefLogo from "../../media/chef.svg";
 
 class Dashboard extends Component {
   render() {
@@ -11,12 +12,14 @@ class Dashboard extends Component {
     const { recipes, auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin"></Redirect>;
     return (
-      <div className="center container">
+      <div className="center container section">
         <div className="row">
           <div className="col s12 m6">
             <RecipeList recipes={recipes} />
           </div>
-          <div className="col s12 m5 offset-m1"></div>
+          <div className="col s6 center ">
+            <img alt="" src={ChefLogo} style={{ height: 300, width: 600 }} />
+          </div>
         </div>
       </div>
     );

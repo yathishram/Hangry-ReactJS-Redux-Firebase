@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 import SearchList from "./searchList";
 
@@ -25,6 +27,8 @@ export class SearchRecipe extends Component {
     });
   };
   render() {
+    const { auth } = this.props;
+    if (!auth.uid) return <Redirect to="/signin"></Redirect>;
     return (
       <div className="container">
         <form className="white" onSubmit={this.handleSubmit}>
@@ -47,4 +51,10 @@ export class SearchRecipe extends Component {
   }
 }
 
-export default SearchRecipe;
+const mapStateToProps = state => {
+  return {
+    auth: state.firebase.auth
+  };
+};
+
+export default connect(mapStateToProps)(SearchRecipe);
