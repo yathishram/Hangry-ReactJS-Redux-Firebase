@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import SignedInLinks from "./SignInLinks";
 import SignedOutLinks from "./SignOutLinks";
 import { connect } from "react-redux";
-
+//
 const NavBar = props => {
   const { auth, profile } = props;
   const links = auth.uid ? <SignedInLinks profile={profile} /> : <SignedOutLinks />;
