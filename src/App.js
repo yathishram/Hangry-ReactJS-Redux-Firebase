@@ -11,6 +11,7 @@ import SearchRecipe from "./components/search/searchComponent";
 import CreateRecipe from "./components/recipe/createRecipe";
 import RecipeDetails from "./components/recipe/recipeDetails";
 import SearchDetails from "./components/search/searchDetails";
+import EditRecipe from "./components/recipe/editRecipe";
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path="/recipe" component={CreateRecipe} />
             <Route path="/recipe/:id" component={RecipeDetails} />
             <Route path="/api/recipe/:id" component={SearchDetails} />
+            <Route path="/edit/:id" component={EditRecipe} />
           </Switch>
         </div>
       </BrowserRouter>

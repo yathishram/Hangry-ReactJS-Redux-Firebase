@@ -4,6 +4,7 @@ import { firestoreConnect } from "react-redux-firebase";
 import { compose } from "redux";
 import { Redirect } from "react-router-dom";
 import moment from "moment";
+import { Link } from "react-router-dom";
 
 const RecipeDetails = props => {
   const { recipe, auth } = props;
@@ -25,6 +26,7 @@ const RecipeDetails = props => {
             </div>
           </div>
         </div>
+        <Link to={`/edit/${props.match.params.id}`}>Edit</Link>
       </div>
     );
   } else {

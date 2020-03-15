@@ -21,3 +21,22 @@ export const createRecipe = recipe => {
       });
   };
 };
+
+export const editRecipe = (recipe, id) => {
+  return (dispatch, getState, { getFirestore }) => {
+    const firestore = getFirestore();
+
+    firestore
+      .collection("recipes")
+      .doc(id)
+      .update({
+        ...recipe
+      })
+      .then(() => {
+        dispatch({ type: "UPDATE_RECIPE_SUCCESS" });
+      })
+      .catch(err => {
+        dispatch({ type: "UPDATE_RECIPE_ERROR", err });
+      });
+  };
+};

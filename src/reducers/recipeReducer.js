@@ -10,13 +10,11 @@ const recipeReducer = (state = initState, action) => {
     case "CREATE_PROJECT_ERROR":
       console.log("create recipe error", action.err);
       return state;
-    case "GETTING_DATA_SUCCESS":
-      console.log("got the data", action.recipe);
-      return {
-        ...state
-      };
-    case "GETTING_DATA_ERROR":
-      console.log("getting recipe error", action.err);
+    case "UPDATE_RECIPE_SUCCESS":
+      console.log("created recipe", action.recipe);
+      return state;
+    case "UPDATE_PROJECT_ERROR":
+      console.log("create recipe error", action.err);
       return state;
     default:
       return state;

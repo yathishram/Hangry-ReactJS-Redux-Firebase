@@ -41,9 +41,11 @@ export class SearchRecipe extends Component {
             <button className="btn pink lighten-1 z-depth-0">Search</button>
           </div>
         </form>
-        <div className="row">
-          <div className="col s3 l4">
-            <SearchList results={this.state.results} />
+        <div className="container">
+          <div className="row">
+            <div className="col s8">
+              <SearchList results={this.state.results} />
+            </div>
           </div>
         </div>
       </div>
