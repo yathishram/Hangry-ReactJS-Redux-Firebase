@@ -1,0 +1,15 @@
+* 7b23dd72 : Added Fixes
+* a9f3b234 : Added edit functionality
+* 0364300b : Fixed user recipes
+* f9628515 : Added search details and components
+* 79ec1dd2 : Added search summary and images
+* 9a379ff3 : Added Search, Dashboard
+* 3c5688d3 : Added Action
+*   6ef2e84b : Added user auth
+|\  
+| * 9952afc9 : Updated Readme
+* | 25d2e7b8 : Added User auth
+|/  
+* f42e2ae7 : added .gitignore
+* 64189042 : removed node_modules
+* e97960bb : inital commit
