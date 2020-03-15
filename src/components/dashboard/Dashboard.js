@@ -34,4 +34,10 @@ const mapStateToProps = state => {
   };
 };
 
-export default compose(connect(mapStateToProps), firestoreConnect([{ collection: "recipes" }]))(Dashboard);
+export default compose(
+  connect(mapStateToProps),
+  firestoreConnect(props => {
+    if (!props.auth.uid) return [];
+    return [{ collection: "recipes", where: [["authorId", "==", props.auth.uid]] }];
+  })
+)(Dashboard);
