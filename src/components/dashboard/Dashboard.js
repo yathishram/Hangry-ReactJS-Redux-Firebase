@@ -11,18 +11,28 @@ class Dashboard extends Component {
     console.log(this.props);
     const { recipes, auth } = this.props;
     if (!auth.uid) return <Redirect to="/signin"></Redirect>;
-    return (
-      <div className="center container section">
-        <div className="row">
-          <div className="col s12 m6">
-            <RecipeList recipes={recipes} />
-          </div>
-          <div className="col s6 center ">
-            <img alt="" src={ChefLogo} style={{ height: 300, width: 600 }} />
+    if (recipes) {
+      return (
+        <div className="center container section">
+          <div className="row">
+            <div className="col s12 m6">
+              <RecipeList recipes={recipes} />
+            </div>
+            <div className="col s6 center ">
+              <img alt="" src={ChefLogo} style={{ height: 300, width: 600 }} />
+            </div>
           </div>
         </div>
-      </div>
-    );
+      );
+    } else {
+      return (
+        <div className="center container section">
+          <div className="row">
+            <h5>Hey! sorry there is nothing here!</h5>
+          </div>
+        </div>
+      );
+    }
   }
 }
 

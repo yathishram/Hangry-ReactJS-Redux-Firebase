@@ -38,7 +38,7 @@ class SearchDetails extends Component {
           <div className="card z-depth-0">
             <div className="card-content">
               <span className="card-title">{this.state.title}</span>
-              <img src={this.state.image} alt="" style={{ height: 300, width: 250 }} />
+              <img src={this.state.image} alt="" style={{ height: 400, width: 400 }} />
               <hr />
               <h5>Ingredients</h5>
               <IngredientsList ingredients={this.state.ingredients} />
